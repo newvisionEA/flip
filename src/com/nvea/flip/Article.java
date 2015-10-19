@@ -15,4 +15,14 @@ public class Article {
 		return articleTypes;
 	}
 
+	@Override
+	public String toString() {
+		String result = "";
+
+		for (ArticleType articleType : articleTypes) {
+			result += articleType.getShortcut();
+		}
+
+		return result;
+	}
 }
