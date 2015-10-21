@@ -110,4 +110,42 @@ public class Warehouse {
     matrix[y][x] = null;
   }
 
+  public int getFree() {
+    int count = 0;
+    for (int y = 0; y < matrix.length; y++) {
+      for (int x = 0; x < matrix[0].length; x++) {
+        if (matrix[y][x] == null) {
+          count++;
+        }
+      }
+    }
+    return count;
+  }
+
+  @Override
+  public Object clone() {
+    Warehouse clone = new Warehouse(this.getWidth(), this.getHeight());
+    for (int y = 0; y < matrix.length; y++) {
+      for (int x = 0; x < matrix[0].length; x++) {
+        clone.matrix[y][x] = matrix[y][x];
+      }
+    }
+
+    return clone;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    Warehouse that = (Warehouse) obj;
+
+    for (int y = 0; y < matrix.length; y++) {
+      for (int x = 0; x < matrix[0].length; x++) {
+        if (!that.matrix[y][x].equals(matrix[y][x])) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
 }

@@ -16,7 +16,7 @@ public class Main {
     Warehouse w = new Warehouse(8, 8);
     Model m = new Model(w, Article.getRandom());
     Controller c = new Controller(m);
-    for (int i = 0; i < 200; i++) {
+    while (w.getFree() > 5) {
       try {
         w.store((int) (Math.random() * 8.0), (int) (Math.random() * 8.0), Article.getRandom());
       } catch (Exception e) {

@@ -80,19 +80,24 @@ public class MyFrame extends JFrame {
     for (int y = 0; y < c.getModel().getWarehouse().getHeight(); y++) {
       for (int x = 0; x < c.getModel().getWarehouse().getWidth(); x++) {
         if (c.getModel().getWarehouse().getArticleAt(x, y) != null) {
-          g.drawString(c.getModel().getWarehouse().getArticleAt(x, y).toString(), 5 + BLOCKSIZE * (x + 1), -5 + OFFSET + (y + 2) * BLOCKSIZE);
+          //g.drawString(c.getModel().getWarehouse().getArticleAt(x, y).toString(), 5 + BLOCKSIZE * (x + 1), -5 + OFFSET + (y + 2) * BLOCKSIZE);
+          c.getModel().getWarehouse().getArticleAt(x, y).draw(g, 5 + BLOCKSIZE * (x + 1), -5 + OFFSET + (y + 2) * BLOCKSIZE);
         }
       }
     }
 
     g.setColor(Color.YELLOW);
-    g.drawString(c.getModel().getCurrentArticle().toString(), 10, 40);
+    //g.drawString(c.getModel().getCurrentArticle().toString(), 10, 40);
+    c.getModel().getCurrentArticle().draw(g, 10, 60);
 
     g.setColor(Color.YELLOW);
-    g.drawString(c.getModel().getSelection() != null ? c.getModel().getSelection().toString() : "", 40, 40);
+    //g.drawString(c.getModel().getSelection() != null ? c.getModel().getSelection().toString() : "", 40, 40);
+    if (c.getModel().getSelection() != null) {
+      c.getModel().getSelection().draw(g, 40, 60);
+    }
 
     g.setColor(Color.RED);
-    g.drawString(c.getModel().getMessage(), 100, 40);
+    g.drawString(c.getModel().getMessage() != null ? c.getModel().getMessage() : "", 100, 50);
 
   }
 }
