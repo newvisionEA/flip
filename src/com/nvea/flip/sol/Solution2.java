@@ -8,8 +8,8 @@ package com.nvea.flip.sol;
 
 import java.util.ArrayList;
 
-import com.nvea.flip.Article;
-import com.nvea.flip.Warehouse;
+import com.nvea.flip.model.Article;
+import com.nvea.flip.model.Warehouse;
 
 /**
  * @author <a href="mailto:rveina@ssi-schaefer-noell.com">rveina</a>
@@ -31,6 +31,7 @@ public class Solution2 {
   }
 
   public int find() {
+    path.add((Warehouse) w.clone());
     find(0);
     return minSol;
   }
@@ -41,6 +42,7 @@ public class Solution2 {
       if (minSol > ops.size() - items.length) {
         minSol = ops.size() - items.length;
       }
+      System.out.println(minSol);
       return;
     }
 
@@ -49,9 +51,15 @@ public class Solution2 {
     for (Operation op : ops2) {
       try {
         op.action(w);
-        ops.add(op);
-        find(op.increment(itemCounter));
-        ops.remove(op);
+        if (!ops.contains(op) && ops.size() < 9) {
+          ops.add(op);
+          if (!path.contains(w)) {
+            path.add((Warehouse) w.clone());
+            find(op.increment(itemCounter));
+            path.remove(path.size() - 1);
+          }
+          ops.remove(op);
+        }
         op.undoAction(w);
       } catch (Exception e) {
         op.onCatch(w);

@@ -6,7 +6,7 @@
 
 package com.nvea.flip.sol;
 
-import com.nvea.flip.Warehouse;
+import com.nvea.flip.model.Warehouse;
 
 /**
  * @author <a href="mailto:rveina@ssi-schaefer-noell.com">rveina</a>

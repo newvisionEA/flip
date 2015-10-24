@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package com.nvea.flip;
+package com.nvea.flip.model;
 
 
 /**

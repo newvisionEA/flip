@@ -1,5 +1,5 @@
 
-package com.nvea.flip;
+package com.nvea.flip.model;
 
 public class Warehouse {
   private Article[][] matrix;
@@ -140,12 +140,28 @@ public class Warehouse {
 
     for (int y = 0; y < matrix.length; y++) {
       for (int x = 0; x < matrix[0].length; x++) {
-        if (!that.matrix[y][x].equals(matrix[y][x])) {
+        if (that.matrix[y][x] == null) {
+          if (this.matrix[y][x] != null) {
+            return false;
+          }
+        } else if (!that.matrix[y][x].equals(this.matrix[y][x])) {
           return false;
         }
       }
     }
 
     return true;
+  }
+
+  @Override
+  public String toString() {
+    String result = "";
+    for (int y = 0; y < matrix.length; y++) {
+      for (int x = 0; x < matrix[0].length; x++) {
+        result += ((matrix[y][x] != null ? matrix[y][x].toString() : "____") + " ");
+      }
+      result += "\n\r";
+    }
+    return result;
   }
 }

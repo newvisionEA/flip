@@ -1,5 +1,5 @@
 
-package com.nvea.flip;
+package com.nvea.flip.model;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -92,5 +92,21 @@ public class Article {
       g.setColor(Color.YELLOW);
       g.drawString("P", x + 15, y - 15);
     }
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    Article that = (Article) obj;
+
+    for (ArticleType type : ArticleType.values()) {
+      if (that.hasType(type) && !this.hasType(type)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }

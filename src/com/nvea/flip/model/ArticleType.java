@@ -1,5 +1,5 @@
 
-package com.nvea.flip;
+package com.nvea.flip.model;
 
 public enum ArticleType {
   INFLAMABLE("I"), FREEZING("F"), LIQUID("L"), PERMEABLE("P");

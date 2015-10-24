@@ -4,7 +4,7 @@
  * $Header: $
  */
 
-package com.nvea.flip;
+package com.nvea.flip.model;
 
 import java.awt.Color;
 import java.awt.Graphics;
