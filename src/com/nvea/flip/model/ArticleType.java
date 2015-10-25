@@ -1,16 +1,17 @@
-
 package com.nvea.flip.model;
 
-public enum ArticleType {
-  INFLAMABLE("I"), FREEZING("F"), LIQUID("L"), PERMEABLE("P");
-  private String shortcut;
+import java.io.Serializable;
 
-  ArticleType(String shortcut) {
-    this.shortcut = shortcut;
-  }
+public enum ArticleType implements Serializable {
+	INFLAMABLE("I"), FREEZING("F"), LIQUID("L"), PERMEABLE("P");
+	private String shortcut;
 
-  public String getShortcut() {
-    return shortcut;
-  }
+	ArticleType(String shortcut) {
+		this.shortcut = shortcut;
+	}
+
+	public String getShortcut() {
+		return shortcut;
+	}
 
 }
