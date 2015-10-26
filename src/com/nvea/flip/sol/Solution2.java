@@ -23,6 +23,7 @@ public class Solution2 {
 	private Warehouse w;
 	private ArrayList<Operation> ops;
 	private int minSol = 10000;
+	private Warehouse minWh;
 
 	public Solution2(Warehouse w, Article[] items) {
 		this.w = w;
@@ -41,6 +42,7 @@ public class Solution2 {
 			System.out.println(ops);
 			if (minSol > ops.size() - items.length) {
 				minSol = ops.size() - items.length;
+				minWh = (Warehouse) w.clone();
 			}
 			System.out.println(minSol);
 			return;
@@ -51,7 +53,7 @@ public class Solution2 {
 		for (Operation op : ops2) {
 			try {
 				op.action(w);
-				if (!ops.contains(op) && ops.size() < minSol) {
+				if (!ops.contains(op) && ops.size() < 3) {
 					ops.add(op);
 					if (!path.contains(w)) {
 						path.add((Warehouse) w.clone());
@@ -92,5 +94,9 @@ public class Solution2 {
 			}
 		}
 		return result;
+	}
+
+	public Warehouse getMinWarehouse() {
+		return minWh;
 	}
 }

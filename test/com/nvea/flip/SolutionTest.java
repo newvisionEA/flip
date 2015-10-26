@@ -14,6 +14,7 @@ import com.nvea.flip.model.Article;
 import com.nvea.flip.model.ArticleType;
 import com.nvea.flip.model.Warehouse;
 import com.nvea.flip.sol.Solution2;
+import com.nvea.flip.sol.Solution3;
 
 /**
  * @author <a href="mailto:rveina@ssi-schaefer-noell.com">rveina</a>
@@ -109,7 +110,7 @@ public class SolutionTest {
 		    new Article(new ArticleType[] { ArticleType.FREEZING }), //
 		    new Article(new ArticleType[] { ArticleType.FREEZING }) };
 
-		Solution2 sol = new Solution2(w, items);
-		assertEquals(2, sol.find());
+		Solution3 sol = new Solution3(items, w);
+		assertEquals(8, sol.find());
 	}
 }
